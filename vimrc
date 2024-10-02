@@ -8,37 +8,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
 
-
-    " Browsing
-    Plug 'junegunn/fzf'
-    Plug 'junegunn/fzf.vim'
-    Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
-    Plug 'christoomey/vim-tmux-navigator'
-
-
-    " Git
-    Plug 'tpope/vim-fugitive'
-
-
-    " Language
-    Plug 'mattn/vim-lsp-settings'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'prabirshrestha/vim-lsp'
-
-    Plug 'rhysd/vim-clang-format'
-    Plug 'bfrg/vim-cpp-modern'
-
-    Plug 'fatih/vim-go'
-
     " Visual
     Plug 'junegunn/rainbow_parentheses.vim'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-
-    " Terminal
-    Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 " ==============================================================================
@@ -118,11 +92,6 @@ inoremap jk <esc>
 " plugin settings
 " ==============================================================================
 
-" NERDTree settings
-" ----------------------------------------------------------------------------
-nnoremap <leader>nt :NERDTree<cr>
-
-
 " vim-airline settings
 " ----------------------------------------------------------------------------
 let g:airline#extensions#tabline#enabled = 1
@@ -134,22 +103,6 @@ nmap <leader>l :bnext<cr>
 nmap <leader>h :bprevious<cr>
 nmap <leader>q :bp<bar> bd #<cr>
 
-" vim-lsp settings
-" ----------------------------------------------------------------------------
-nmap <leader>s :LspHover<cr>
-
-inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<c-y>" : "\<cr>"
-
-" vim-go settings
-" ----------------------------------------------------------------------------
-
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_interfaces = 1
-
 " rainbow parentheses settings
 " ----------------------------------------------------------------------------
 augroup rainbow_c
@@ -158,18 +111,3 @@ augroup rainbow_c
 augroup END
 
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-
-
-" FZF settings
-" ----------------------------------------------------------------------------
-nmap <leader>p :FZF
-
-" Floaterm settings
-" ----------------------------------------------------------------------------
-let g:floaterm_keymap_toggle = '<leader>t'
-let g:floaterm_width = 0.9
-
-augroup floaterm
-    autocmd!
-    autocmd ExitPre * :FloatermKill!
-augroup END
